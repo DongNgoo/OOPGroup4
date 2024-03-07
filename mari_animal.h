@@ -30,6 +30,8 @@ public:
 	int getHunger() const;
 
 	void playAnimal();
+	void feedAnimal();
+	void makeSound();
 	void displayReport();
 };
 
@@ -67,7 +69,15 @@ void Animal::playAnimal() {
 		setHunger(--currentHunger);
 	}
 }
-
+void Animal::feedAnimal() {
+	int currentHunger = getHunger();
+	if (currentHunger < 10) {
+		setHunger(10);
+	}
+}
+void Animal::makeSound() {
+	cout << "\n" << getName() << " says: " << getSound() << endl;
+}
 void Animal::displayReport() {
 	cout
 		<< "\nAnimal Report"
