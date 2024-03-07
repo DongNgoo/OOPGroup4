@@ -1,4 +1,5 @@
 #include "animal.h"
+#include "dog.h"
 
 int main() {
 	Animal newAnimal;
@@ -8,7 +9,15 @@ int main() {
 	myDog.displayReport();
 
 	myDog.playAnimal();
+	myDog.makeSound();
 	myDog.displayReport();
+
+	Dog myDog_2;
+	myDog_2.displayReport();
+
+	Dog myDog_3("Scratch");
+	myDog_3.displayReport();
+
 
 	return 0;
 }
