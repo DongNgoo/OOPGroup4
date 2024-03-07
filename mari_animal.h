@@ -10,18 +10,18 @@ using std::string;
 class Animal {
 private:
 	string name;
-	string sound;
+	string location;
 	double weight{ 0.0 };
 	int hungerLevel{ 0 };
 
 public:
-	Animal(string n = "New Animal", string s = "Hello!", double w = 0.0, int h = 0);
+	Animal(string n = "New Animal", string l = "Location", double w = 0.0, int h = 0);
 
 	void setName(string n);
 	string getName() const;
 
-	void setSound(string s);
-	string getSound() const;
+	void setLocation(string l);
+	string getLocation() const;
 
 	void setWeight(double w);
 	double getWeight() const;
@@ -31,12 +31,13 @@ public:
 
 	void playAnimal();
 	void feedAnimal();
-	void makeSound();
-	void displayReport();
+
+	virtual void makeSound() const = 0;
+	virtual void displayReport() const;
 };
 
-Animal::Animal(string n, string s, double w, int h)
-	: name{ n }, sound{ s } {
+Animal::Animal(string n, string l, double w, int h)
+	: name{ n }, location{ l } {
 	setWeight(w);
 	setHunger(h);
 }
@@ -44,8 +45,8 @@ Animal::Animal(string n, string s, double w, int h)
 void Animal::setName(string n) { name = n; }
 string Animal::getName() const { return name; }
 
-void Animal::setSound(string s) { sound = s; }
-string Animal::getSound() const { return sound; }
+void Animal::setLocation(string l) { location = l; }
+string Animal::getLocation() const { return location; }
 
 void Animal::setWeight(double w) {
 	if (w < 0.0) {
@@ -75,14 +76,11 @@ void Animal::feedAnimal() {
 		setHunger(10);
 	}
 }
-void Animal::makeSound() {
-	cout << "\n" << getName() << " says: " << getSound() << endl;
-}
-void Animal::displayReport() {
+void Animal::displayReport() const {
 	cout
 		<< "\nAnimal Report"
 		<< "\nName: " << getName()
-		<< "\nSound: " << getSound()
+		<< "\nLocation of origin: " << getLocation()
 		<< "\nWeight: " << getWeight()
 		<< "\nHunger level: " << getHunger()
 		<< endl;
