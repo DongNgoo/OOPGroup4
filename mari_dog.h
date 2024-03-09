@@ -5,14 +5,14 @@ class Dog : public Animal {
 private:
 	string sound;
 public:
-	Dog(string n = "New Dog", string l = "Location", string s = "Bark!", double w = 0.0, int h = 0);
+	Dog(string n = "New Dog", string l = "Location", double w = 0.0, int h = 0, string s = "Bark!");
 	void setSound(string s);
 	string getSound() const;
 	virtual void makeSound() const override;
 	virtual void displayReport() const override;
 };
 
-Dog::Dog(string n, string l, string s, double w, int h)
+Dog::Dog(string n, string l, double w, int h, string s)
 	: Animal(n, l, w, h) {
 	setSound(s);
 }
