@@ -1,6 +1,6 @@
 #include <vector>
-#include "animal.h"
-#include "dog.h"
+#include "mari_animal.h"
+#include "mari_dog.h"
 using std::vector;
 
 void addAnimal(vector<Animal*>& arr, Animal* ptr) {
